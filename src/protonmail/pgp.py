@@ -56,7 +56,7 @@ class PGP:
         # Some messages are encoded in latin _1, so we will recode them in utf-8
         try:
             message = message.encode('latin_1').decode('utf-8')
-        except UnicodeEncodeError:
+        except (UnicodeEncodeError, UnicodeDecodeError):
             pass
 
         return message
